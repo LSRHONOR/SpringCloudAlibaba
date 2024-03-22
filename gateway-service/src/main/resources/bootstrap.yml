@@ -1,0 +1,40 @@
+# 配置服务器端口
+server:
+  port: 8080
+
+spring:
+  # 应用名称配置
+  application:
+    name: gateway-service # 微服务名称
+  # Nacos 配置
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848 # Nacos 服务地址
+      discovery:
+        namespace: dev   # 命名空间
+        group: SpringCloudAlibaba  # 分组
+
+    # 配置Spring Cloud Gateway路由规则
+    gateway:
+      routes:
+        # 第一条路由规则，将以 /user/** 路径的请求路由到 user-service 服务
+        - id: user                 # 路由规则id，自定义，唯一
+          uri: lb://user-service   # 路由的目标服务，lb代表负载均衡，会从注册中心拉取服务列表
+          predicates: # 路由断言，判断当前请求是否符合当前规则，符合则路由到目标服务
+            - Path=/user/**        # 这里是以请求路径作为判断规则
+        # 第二条路由规则，将以 /order/** 路径的请求路由到 order-service 服务
+        - id: order
+          uri: lb://order-service
+          predicates:
+            - Path=/order/**
+knife4j:
+  gateway:
+    # ① 第一个配置，开启gateway聚合组件
+    enabled: true
+    # ② 第二行配置，设置聚合模式采用discover服务发现的模式
+    strategy: discover
+    discover:
+      # ③ 第三行配置，开启discover模式
+      enabled: true
+      # ④ 第四行配置，聚合子服务全部为Swagger2规范的文档
+      version: swagger2
