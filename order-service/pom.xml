@@ -18,6 +18,11 @@
     </properties>
 
     <dependencies>
+        <!-- Spring Boot Web Starter，用于构建Web应用 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
         <!-- MySQL Connector/J，用于连接 MySQL 数据库 -->
         <dependency>
             <groupId>com.mysql</groupId>

@@ -28,7 +28,7 @@ public class Orders implements Serializable {
     /**
      *
      */
-    private Integer userId;
+    private Long userId;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

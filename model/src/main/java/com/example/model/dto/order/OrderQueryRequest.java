@@ -14,7 +14,7 @@ public class OrderQueryRequest extends PageRequest implements Serializable {
 
     private String orderNum;
 
-    private Integer userId;
+    private Long userId;
 
     private static final long serialVersionUID = 1L;
 }

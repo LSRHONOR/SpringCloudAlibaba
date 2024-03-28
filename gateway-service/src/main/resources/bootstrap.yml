@@ -21,12 +21,12 @@ spring:
         - id: user                 # 路由规则id，自定义，唯一
           uri: lb://user-service   # 路由的目标服务，lb代表负载均衡，会从注册中心拉取服务列表
           predicates: # 路由断言，判断当前请求是否符合当前规则，符合则路由到目标服务
-            - Path=/user/**        # 这里是以请求路径作为判断规则
+            - Path=/api/user/**        # 这里是以请求路径作为判断规则
         # 第二条路由规则，将以 /order/** 路径的请求路由到 order-service 服务
         - id: order
           uri: lb://order-service
           predicates:
-            - Path=/order/**
+            - Path=/api/order/**
 knife4j:
   gateway:
     # ① 第一个配置，开启gateway聚合组件

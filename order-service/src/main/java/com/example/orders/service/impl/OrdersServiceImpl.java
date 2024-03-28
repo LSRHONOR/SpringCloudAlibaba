@@ -34,11 +34,11 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders>
         }
         Long orderId = orderQueryRequest.getOrderId();
         String orderNum = orderQueryRequest.getOrderNum();
-        Integer userId = orderQueryRequest.getUserId();
+        Long userId = orderQueryRequest.getUserId();
         QueryWrapper<Orders> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq(orderId != null, "order_id", orderId);
-        queryWrapper.eq(StringUtils.isNotBlank(orderNum), "order_num", orderNum);
-        queryWrapper.eq(userId != null, "user_id", userId);
+        queryWrapper.eq(orderId != null, "orderId", orderId);
+        queryWrapper.eq(StringUtils.isNotBlank(orderNum), "orderNum", orderNum);
+        queryWrapper.eq(userId != null, "userId", userId);
         return queryWrapper;
     }
 }

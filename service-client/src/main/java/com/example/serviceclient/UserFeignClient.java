@@ -51,7 +51,7 @@ public interface UserFeignClient {
         Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
         User currentUser = (User) userObj;
         if (currentUser == null || currentUser.getId() == null) {
-            throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR);
+            throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR,"未登录");
         }
         // 可以考虑在这里做全局权限校验
         return currentUser;

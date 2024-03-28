@@ -27,6 +27,7 @@ public class OrdersController {
     @PostMapping("/getOrder")
     public BaseResponse<Page<Orders>> getOrder(@RequestBody OrderQueryRequest orderQueryRequest, HttpServletRequest request) {
         User loginUser = userFeignClient.getLoginUser(request);
+        orderQueryRequest.setUserId(loginUser.getId());
         long current = orderQueryRequest.getCurrent();
         long pageSize = orderQueryRequest.getPageSize();
         Page<Orders> ordersPage = ordersService.page(new Page<>(current, pageSize), ordersService.getQueryWrapper(orderQueryRequest));
