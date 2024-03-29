@@ -10,7 +10,7 @@ import java.util.Date;
  * 用户
  *
  */
-@TableName(value = "user")
+@TableName(value = "User")
 @Data
 public class User implements Serializable {
 
@@ -18,7 +18,7 @@ public class User implements Serializable {
      * id
      */
     @TableId(type = IdType.ASSIGN_ID)
-    private Long id;
+    private Long userId;
 
     /**
      * 用户账号
@@ -29,16 +29,6 @@ public class User implements Serializable {
      * 用户密码
      */
     private String userPassword;
-
-    /**
-     * 开放平台id
-     */
-    private String unionId;
-
-    /**
-     * 公众号openId
-     */
-    private String mpOpenId;
 
     /**
      * 用户昵称
@@ -54,11 +44,6 @@ public class User implements Serializable {
      * 用户简介
      */
     private String userProfile;
-
-    /**
-     * 用户角色：user/admin/ban
-     */
-    private String userRole;
 
     /**
      * 创建时间

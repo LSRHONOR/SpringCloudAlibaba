@@ -1,19 +1,16 @@
 spring:
   application:
     name: order-service  # 微服务名称，用于服务注册与发现
+  profiles:
+    active: dev  # 指定当前应用的激活环境为dev，可根据需要配置不同的环境，这里对应的是上面创建配置时的 order-service-dev.yaml 的 dev
   cloud:
     nacos:
-      server-addr: 127.0.0.1:8848  # Nacos注册中心地址
+      server-addr: 101.33.237.60:8848  # Nacos注册中心地址
       config:
         namespace: dev  # Nacos配置中心的命名空间
         group: SpringCloudAlibaba  # Nacos配置的分组
         file-extension: yaml  # 配置文件的扩展名，这里使用YAML格式
         refresh-enabled: true  # 启用配置自动刷新
-      discovery:
-        namespace: dev  # Nacos服务发现的命名空间
-        group: SpringCloudAlibaba  # Nacos服务发现的分组
-  profiles:
-    active: dev  # 指定当前应用的激活环境为dev，可根据需要配置不同的环境，这里对应的是上面创建配置时的 order-service-dev.yaml 的 dev
-knife4j:
-  enable: true
-
+        shared-configs:
+          - dataId: shared-jdbc.yaml # 共享mybatis配置
+          - dataId: shared-log.yaml # 共享日志配置

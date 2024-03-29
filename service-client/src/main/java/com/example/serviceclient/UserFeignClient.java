@@ -19,7 +19,7 @@ import static com.example.common.constant.UserConstant.USER_LOGIN_STATE;
 /**
  * 用户服务
  */
-@FeignClient(name = "user-service", path = "/user/inner")
+@FeignClient(name = "user-service", path = "/api/user/inner")
 public interface UserFeignClient {
 
     /**
@@ -50,7 +50,7 @@ public interface UserFeignClient {
         // 先判断是否已登录
         Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
         User currentUser = (User) userObj;
-        if (currentUser == null || currentUser.getId() == null) {
+        if (currentUser == null || currentUser.getUserId() == null) {
             throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR,"未登录");
         }
         // 可以考虑在这里做全局权限校验

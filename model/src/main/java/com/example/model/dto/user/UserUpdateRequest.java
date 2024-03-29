@@ -10,9 +10,9 @@ import java.io.Serializable;
 @Data
 public class UserUpdateRequest implements Serializable {
     /**
-     * id
+     * 用户ID
      */
-    private Long id;
+    private Long userId;
 
     /**
      * 用户昵称

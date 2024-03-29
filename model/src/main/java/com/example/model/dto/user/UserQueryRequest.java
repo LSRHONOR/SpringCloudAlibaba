@@ -13,9 +13,9 @@ import java.io.Serializable;
 @Data
 public class UserQueryRequest extends PageRequest implements Serializable {
     /**
-     * id
+     * 用户ID
      */
-    private Long id;
+    private Long userId;
 
     /**
      * 开放平台id

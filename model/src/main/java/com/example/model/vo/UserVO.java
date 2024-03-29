@@ -12,9 +12,9 @@ import java.util.Date;
 public class UserVO implements Serializable {
 
     /**
-     * id
+     * 用户ID
      */
-    private Long id;
+    private Long userId;
 
     /**
      * 用户昵称
@@ -30,11 +30,6 @@ public class UserVO implements Serializable {
      * 用户简介
      */
     private String userProfile;
-
-    /**
-     * 用户角色：user/admin/ban
-     */
-    private String userRole;
 
     /**
      * 创建时间

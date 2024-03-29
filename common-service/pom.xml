@@ -22,12 +22,6 @@
 
     <!-- 项目依赖配置 -->
     <dependencies>
-        <!-- Spring Boot Web Starter，用于构建Web应用 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
         <!-- Alibaba Nacos Discovery Starter，用于服务注册与发现 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

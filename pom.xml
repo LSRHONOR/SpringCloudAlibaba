@@ -14,6 +14,7 @@
         <module>model</module>
         <module>service-client</module>
         <module>order-service</module>
+        <module>product-service</module>
     </modules>
 
     <!-- 指定使用的父项目 -->
